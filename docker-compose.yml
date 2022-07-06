@@ -1,0 +1,55 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    restart: always
+    ports:
+     - "8888:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:5.7.22
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: managementUsers
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secreto2022
+      MYSQL_ROOT_PASSWORD: secreto2022
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    ports:
+      - "33306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - app-network
+
+
+  #PHP Service
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php
+    restart: always
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "9000:9000"
+    tty: true
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

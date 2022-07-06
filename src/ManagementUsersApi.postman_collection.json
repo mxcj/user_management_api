@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "b7b0db47-01b9-4801-b3db-e880725b5adf",
+		"name": "ManagementUsersApi",
+		"description": "Esta API permite la creación, modificación, eliminación y consulta de usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21719699"
+	},
+	"item": [
+		{
+			"name": "Listar todos los Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/usuarios?filter[nombre]=sh&sort=-nombre",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios"
+					],
+					"query": [
+						{
+							"key": "filter[nombre]",
+							"value": "sh"
+						},
+						{
+							"key": "sort",
+							"value": "-nombre"
+						}
+					]
+				},
+				"description": "Este endpoint nos permite listar los usuarios de la base de datos.\n\n**Filtros**: Podemos filtrar por los siguientes campos, nombre, apeliido, dirección\n\n*   ?filter\\[nombre\\]=sh\n*   ?filter\\[nombre\\]=sh&?filter\\[apellido\\]=Lore.\n*   ?filter\\[direccion\\]=avenida\n    \n\n**Nota**: podemos buscar por iniciales, o palabras completas.\n\n**Sorts**: Podemos ordenar por los siguientes campos, nombre, apellido\n\n*   &sort=-nombre\n*   &sort=apellido\n    \n\n**Nota**: Si anteponemos el sigo (-), se ordenará de forma descendente.\n\nCuando realizamos un filtro u ordenamiento por un campo que no está autorizado, el servicio retornara un mensaje status code 400 y un mensaje indicando que la consulta por este campo no esta permitida."
+			},
+			"response": [
+				{
+					"name": "Listar todos los Usuarios",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/usuarios?filter[nombre]=sh&sort=-nombre",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "filter[nombre]",
+									"value": "sh"
+								},
+								{
+									"key": "sort",
+									"value": "-nombre"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Jul 2022 23:56:35 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Jul 2022 23:56:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.30"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 7,\n        \"nombre\": \"Shaylee Welch\",\n        \"apellido\": \"Windler\",\n        \"direccion\": \"1147 Candice Vista Suite 439\\nWardfort, WY 31381\",\n        \"telefono\": \"(847) 994-6556\",\n        \"edad\": 26,\n        \"fecha_contratacion\": \"2012-07-02\",\n        \"fecha_salida\": null,\n        \"created_at\": \"2022-07-01T11:22:22.000000Z\",\n        \"updated_at\": \"2022-07-01T11:22:22.000000Z\"\n    },\n    {\n        \"id\": 9,\n        \"nombre\": \"Shanelle Spencer\",\n        \"apellido\": \"Zboncak\",\n        \"direccion\": \"756 Cassidy Villages\\nWest Jamison, MA 76043\",\n        \"telefono\": \"1-480-469-4929\",\n        \"edad\": 35,\n        \"fecha_contratacion\": \"2012-07-02\",\n        \"fecha_salida\": null,\n        \"created_at\": \"2022-07-01T11:22:22.000000Z\",\n        \"updated_at\": \"2022-07-01T11:22:22.000000Z\"\n    },\n    {\n        \"id\": 19,\n        \"nombre\": \"Ms. Ova Fisher Jr.\",\n        \"apellido\": \"Reichel\",\n        \"direccion\": \"1673 Emmitt Burgs Apt. 659\\nParisianside, DC 64542\",\n        \"telefono\": \"803-241-9204\",\n        \"edad\": 48,\n        \"fecha_contratacion\": \"2012-07-02\",\n        \"fecha_salida\": null,\n        \"created_at\": \"2022-07-01T11:22:24.000000Z\",\n        \"updated_at\": \"2022-07-01T11:22:24.000000Z\"\n    },\n    {\n        \"id\": 43,\n        \"nombre\": \"Mr. Shayne Bergnaum\",\n        \"apellido\": \"Block\",\n        \"direccion\": \"66443 Corwin Trail\\nSouth Gunnar, VA 56138-3329\",\n        \"telefono\": \"678-904-2155\",\n        \"edad\": 56,\n        \"fecha_contratacion\": \"2012-07-03\",\n        \"fecha_salida\": null,\n        \"created_at\": \"2022-07-01T11:22:28.000000Z\",\n        \"updated_at\": \"2022-07-01T11:22:28.000000Z\"\n    },\n    {\n        \"id\": 44,\n        \"nombre\": \"Barrett Abshire\",\n        \"apellido\": \"Quigley\",\n        \"direccion\": \"386 Jacky Stream\\nPort Edward, NM 77041-2806\",\n        \"telefono\": \"+1 (872) 649-1550\",\n        \"edad\": 51,\n        \"fecha_contratacion\": \"2012-07-04\",\n        \"fecha_salida\": null,\n        \"created_at\": \"2022-07-01T11:22:29.000000Z\",\n        \"updated_at\": \"2022-07-01T11:22:29.000000Z\"\n    },\n    {\n        \"id\": 20,\n        \"nombre\": \"Asha Rowe PhD\",\n        \"apellido\": \"Oberbrunner\",\n        \"direccion\": \"8177 Feil Shores\\nLake Myabury, MO 82638-5499\",\n        \"telefono\": \"801.433.5642\",\n        \"edad\": 28,\n        \"fecha_contratacion\": \"2012-07-03\",\n        \"fecha_salida\": null,\n        \"created_at\": \"2022-07-01T11:22:24.000000Z\",\n        \"updated_at\": \"2022-07-01T11:22:24.000000Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Crear Usuarios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Sarah\",\n    \"apellido\": \"Rodriguez\",\n    \"direccion\": \"Esmeraldas 345\",\n    \"telefono\": \"59322348778\",\n    \"edad\": 26,\n    \"fecha_contratacion\": \"2019-07-13\",\n    \"fecha_salida\": \"2021-06-28\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios"
+					]
+				},
+				"description": "Este endpoint permite la creación de usuarios"
+			},
+			"response": [
+				{
+					"name": "Crear Usuarios",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Sarah\",\n    \"apellido\": \"Rodriguez\",\n    \"direccion\": \"Esmeraldas 345\",\n    \"telefono\": \"59322348778\",\n    \"edad\": 26,\n    \"fecha_contratacion\": \"2019-07-13\",\n    \"fecha_salida\": \"2021-06-28\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/usuarios",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Jul 2022 23:59:46 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Jul 2022 23:59:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.30"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Sarah\",\n    \"apellido\": \"Rodriguez\",\n    \"direccion\": \"Esmeraldas 345\",\n    \"telefono\": \"59322348778\",\n    \"edad\": 26,\n    \"fecha_contratacion\": \"2019-07-13\",\n    \"fecha_salida\": \"2021-06-28\",\n    \"updated_at\": \"2022-07-05T23:59:46.000000Z\",\n    \"created_at\": \"2022-07-05T23:59:46.000000Z\",\n    \"id\": 51\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Sarah\",\n    \"apellido\": \"Rodriguez\",\n    \"direccion\": \"Esmeraldas 345\",\n    \"telefono\": \"59322348778\",\n    \"edad\": 28,\n    \"fecha_contratacion\": \"2019-07-13\",\n    \"fecha_salida\": \"2021-06-28\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/usuarios/4",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"4"
+					]
+				},
+				"description": "Este endpoint permite la actualización de los datos de usuarios, para buscar el usuario necesitamos el ID"
+			},
+			"response": [
+				{
+					"name": "Actualizar Usuario",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Sarah\",\n    \"apellido\": \"Rodriguez\",\n    \"direccion\": \"Esmeraldas 345\",\n    \"telefono\": \"59322348778\",\n    \"edad\": 28,\n    \"fecha_contratacion\": \"2019-07-13\",\n    \"fecha_salida\": \"2021-06-28\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/usuarios/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuarios",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 06 Jul 2022 00:04:34 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 06 Jul 2022 00:04:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.30"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"nombre\": \"Sarah\",\n    \"apellido\": \"Rodriguez\",\n    \"direccion\": \"Esmeraldas 345\",\n    \"telefono\": \"59322348778\",\n    \"edad\": 28,\n    \"fecha_contratacion\": \"2019-07-13\",\n    \"fecha_salida\": \"2021-06-28\",\n    \"created_at\": \"2022-07-01T11:22:22.000000Z\",\n    \"updated_at\": \"2022-07-06T00:04:33.000000Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar Usuarios",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/usuarios/4",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"4"
+					]
+				},
+				"description": "Este endpoint permite eliminar usuarios mediante ID"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:8000",
+			"type": "string"
+		}
+	]
+}
